@@ -13,10 +13,12 @@ $config = [
     // 'language' => 'ind',                 // mengatur bahasa yang digunakan
     // 'defaultRoute' => 'site/login',      // mengatur Route Defaultnya
 
+    /*
     // Kita juga bisa menambahkan beberapa Application Event, seperti eventListener pada JS
     'on beforeRequest' => function($event) {
         echo"<h1><br><br>" . var_dump("Ini adalah event sebelum request") . "</h1>";
     },
+    */
 
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
