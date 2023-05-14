@@ -1,10 +1,23 @@
 <?php
 
+use PhpParser\Node\Stmt\Expression;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
+
+    // Beberapa Applications Properties | Dokumentasi : https://www.yiiframework.com/doc/guide/2.0/en/structure-applications
+    'name' => 'Zuma Application',        // Mengatur nama aplikasi, defaultnya "My Application"
+    // 'language' => 'ind',                 // mengatur bahasa yang digunakan
+    // 'defaultRoute' => 'site/login',      // mengatur Route Defaultnya
+
+    // Kita juga bisa menambahkan beberapa Application Event, seperti eventListener pada JS
+    'on beforeRequest' => function($event) {
+        echo"<h1><br><br>" . var_dump("Ini adalah event sebelum request") . "</h1>";
+    },
+
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -42,14 +55,15 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
+        
+        // URL MANAGER
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => true,      // Ini akan membuat url menjadi bersih (Preatty Url)
             'showScriptName' => false,
             'rules' => [
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
