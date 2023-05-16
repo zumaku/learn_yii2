@@ -39,7 +39,9 @@ class PostsController extends Controller{
         $post->category = 'non-fiction';
         $post->myAge = 19;
 
-        // return var_dump($post);
+        // memfalidasi data dari method rules di model
+        if($post->validate()) echo 'validate success!<br><hr>';
+        else echo 'validate error! <br><hr>';
 
         /*kita bisa menggunakan beberapa method pada instans model
         | $posts->attributes()      akan mengembalikan semua atribut pada model itu
